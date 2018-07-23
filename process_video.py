@@ -1,14 +1,21 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu May 24 10:36:08 2018
+
+@author: eia
+"""
+
 import cv2
 import numpy as np
-from visualize_cv2 import model, display_instances, class_names
+from visualize_cv import model, display_instances, class_names
 
-capture = cv2.VideoCapture('videofile.mp4')
+capture = cv2.VideoCapture('kitchen.avi')
 size = (
     int(capture.get(cv2.CAP_PROP_FRAME_WIDTH)),
     int(capture.get(cv2.CAP_PROP_FRAME_HEIGHT))
 )
 codec = cv2.VideoWriter_fourcc(*'DIVX')
-output = cv2.VideoWriter('videofile_masked.avi', codec, 60.0, size)
+output = cv2.VideoWriter('kitchen_masked.avi', codec, 30.0, size)
 
 while(capture.isOpened()):
     ret, frame = capture.read()
